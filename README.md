@@ -229,3 +229,6 @@ cd  “\Frontend”
 4.	Now connect to you Mongo Compass to check if the added data have been pushed to Mongo db or not
 ![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/08f88e4a-f6d2-4098-8526-f0737d1093c6)
 
+
+## *Welcome to my DevOps deployment project on GitHub! Thank you for dropping by!*
+## *And Credit for the code development of this project goes to [Prashant Dey] (GitHub: @UnpredictablePrashant), who dedicated their expertise to its creation.*
