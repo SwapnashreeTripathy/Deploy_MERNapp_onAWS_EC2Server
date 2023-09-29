@@ -36,8 +36,196 @@ This Application is built on the backend with Nodejs and frontend with React tec
 
 7. Next in “Security Group”, for Inbound Security group select IP address as “0.0.0.0/0=anywhere” so that Anyone can connect to this application using any router IP address.
        Select “HTTP, HTTPS, SSH” type protocol so that users can connect to this application via these protocol.
-9. Now write a Size of how much Storage/EBS volume you want. I have given 20GB. Lastly Click on “Launch Instances”. & voilàààààààà!!!!!! You have successfully created your EC2 instances.
+9. Now write a Size of how much Storage/EBS volume you want. I have given 20GB. Lastly Click on “Launch Instances”.<br>
+          voilàààààààà!!!!!! You have successfully created your EC2 instances.<br>
+         ![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/2b4dd2f3-a6d2-464f-93a9-845fc96fb5ca)
+         ![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/24b04052-78b5-4991-932e-bf53f0f507c8)
+         ![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/330fd4dd-c65e-4ebb-be9c-06a950d5d311)
+         ![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/a5d1df7a-bffc-40e8-8d9d-1a3183f99807)
+         ![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/1bc208c2-377f-487a-8930-d4b6d30dd9e9)
+
+
+
 
 ### Configure Nodejs Application on EC2 Server
 
-1. Clone the Nodejs Application code in both the servers.
+1. Clone the Nodejs Application code in both the servers.<br>
+   ```
+   “Git clone https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server.git”
+   ```
+   
+3. Rename 2 servers, one as “MERNApp_Frontend” & the other as “MERNApp_Backend” to refer to which Server is for the Backend code to run & which server is for the Frontend.
+
+4. Install Node.js version 18 in both servers as our Application is written on Node.js version 18.
+      ```
+   sudo apt update
+      ```
+   
+- Move to `~/Deploy_MERNapp_onAWS_EC2Server.git/frontend` folder in Frontend server & `~/Deploy_MERNapp_onAWS_EC2Server.git/backend` folder in backend server.
+- Install “Node.js version 18” in both of the Instances.
+  ```
+  curl -s https://deb.nodesource.com/setup_18.x | sudo bash
+  sudo apt install nodejs -y
+  node -v
+  ```
+- Install all the dependent Libraries from for Frontend & Backend code in their respective environment.<br>
+      after installation a folder “node_modules” will be created which will have all the dependent packages/libraries
+  ```
+  “sudo npm install”
+  “npm  -v”
+  ``` 
+
+
+4. Establish a Connection between the Backend Server and MongoDB. In the Backend server, configure MongoDB details in the .env file to establish a connection between the backend server and MongoDB.
+- Go to Mongo Compass & Click on your MongoDB Cloud server, then click on “Copy connection string”.
+- Open `.env` file:
+  ```
+  sudo nano .env
+  ```
+  Add the following:
+  ```
+  MONGO_URI='ENTER_YOUR_MongoDB_Server_URL'
+  PORT=3000
+  ```
+
+  ![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/d47be31c-68cb-4e0b-b0db-d55be8f4af54)
+
+
+### Create 2 Load Balancers and attach those to Frontend & Backend Server
+
+Use the Load Balancer to distribute the incoming load between 2 Frontend servers coming from users. Follow these steps:<br>
+As we have created a Single Instance of the Frontend and backend Server, we need to “clone the server” so that we can “distribute the load using Load balancer” between those servers.
+
+1. First Create an Image of the current Frontend server.
+- To Create an AMI-->select Frontend Instance-->Click on Image and Templates-->Create Image. Give an Image Name & click on Create Image.
+
+2. Then select this Image, click on “Launch Instance from AMI” and follow the same step for Creating an EC2 Instance.
+
+3. Now Create an Application Load Balancer.
+
+- Click on Load balancer tab-->Click on “Create Application Load Balancer”-->Fill Load Balancer Name-->Double-check if the VPC showing here is the same where you’ve EC2 instances.
+- Select all Availability zones under MAPPING.
+- Select your Security Group same as your Instances.
+- Under Listeners & routing, Keep the Port as 80 (as Target Group will try to connect to the instances & check the health of the server).
+- Click on Create Target group--> Choose Target Type as “Instances”-->provide a Target Name & click on Next-->Select your Available Instance-->Click on Include as pending below-->Create target group.<br>
+  
+  Now your Target group has been created. You can view the health of the server under “Target Group”. If the Target group is able to connect to the attached Instance the Health status will show as “Healthy”, else it will show as “unhealthy”. <br>
+      The Target group sends requests to only the Instances whose status shows as “Healthy”.<br>
+      Note – If you find Target Group as “Unhealthy” then Start your Instances/Server.<br>
+      If you want to add any new Instances to an existing Load Balancer, then you need to “Register the Instance/Target” in Target Load.<br>
+
+4. You will be back to the load balancer creation page & the target group we have created will be selected under “Listener & Routing”.
+
+5. Lastly click on “Create Load balancer”.
+
+## Steps for Creating an Image
+   ![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/f8fa6e6b-dd6b-41dc-ab70-cdbbbffce38d)
+## Steps for Creating  Load Balancer
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/df5d1ce0-c7f2-43b0-8686-62a3300d209e)
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/0271e4c3-e3e8-4d6b-a3f1-0b0ae29c7b89)
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/fd010c22-569e-471d-84dc-2a8239b79e41)
+
+## Create Target Group for this Load Balancer 
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/a4b47cca-befa-45de-8904-7bb3a7a65043)
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/5b6f3713-bbf2-4160-ae8b-0d77cbc07af2)
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/646a76f4-7936-4b84-a55c-b04338643554)
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/86698493-52c1-42ec-be36-e0031a08da66)
+
+
+
+### Configure Nginx and SSL on your EC2 backend & frontend Server
+
+1. Install Nginx on your Servers.
+```
+   sudo apt update
+   sudo apt install nginx
+   sudo nginx -v
+```
+
+After installing it, in your browser localhost, You should see the default Nginx page.
+
+2. Use "certbot" to download an SSL certificate.
+
+Check if Nginx is installed or not:
+
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/1b567df4-38ab-4375-abac-b32a810adcc4)
+
+As we have installed Nginx, follow the steps below to configure SSL.
+
+Open “certbot ” and select your webserver & on which OS it is running. & follow the bwlo link to get SSL installed commands.<br>
+
+Before Running the commands to install SSL certificate you need to provide you domain name in /etc/nginx/sites-available/default file. So that Security will get provided to this domain.<br>
+```
+cd /etc/nginx/sites-available
+cp default  default_26092023
+nano default  -- provide your Domain name beside to “server_name”
+```
+For Frontend:
+ ![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/a33365a4-676d-4205-942b-9e145249625f)
+
+For Backend:
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/51cdda38-6ffd-4bf4-9da3-f4d7374e9fd2)
+
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/a2ba43bf-aa05-4788-8e1d-59d67aea4de2)
+```
+“sudo apt update”
+“sudo apt install snapd”
+
+```
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/04b5e197-5552-4e57-80f9-a0ee993b01cc)
+* To test your system, install the hello-world snap and make sure it runs correctly:
+  ```
+      "sudo snap install hello-world”
+      “hello-world”
+
+  ```
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/a5db6f2f-4c27-4945-9cab-9457fe87b3e5)
+* If you have any Certbot packages installed, then need to remove it by below command.
+  ```
+  “sudo apt-get remove certbot”
+  ```
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/3fabb49f-16d0-41f9-a1d2-05d86eafcd92)
+```
+“sudo snap install --classic certbot”
+```
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/aa208dc8-d1ae-4111-82e8-68492394448e)
+```
+“sudo ln -s /snap/bin/certbot /usr/bin/certbot”
+“sudo certbot --nginx” 
+```
+* After running this command it will ask you to Choose number Number defined for the Domain name. As for our Domain name number is “1”. Give 1 .
+  ![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/8e0b135b-f69b-4942-af37-4a07aa076295)
+
+* To verify if Certbot installed or not, you can go to “/etc/nginx/sites-available/default” file and you will find that certbot has been installed.<br>
+## Configure Reverse Proxy in BackendServer
+•	As our backend runs on 3000 port, we will be setting up Reverse Proxy, to make the HTTP request go from port 80 to 3000.<br>
+•	Provide below configuration in your /etc/nginx/sites-available/default file.<br>
+      ![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/bf0faf8d-60ee-4340-9100-2d5ca79afb73)
+## Domain Name Configuration on Cloudflare 
+1. In CloudFlare first set up your Domain name, by searching your Domain name, to get NameServers from Cloud Falre.<br>
+   ![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/28a0624c-6cde-4040-a083-1c2392ffc9c5)
+
+2. Copy the name servers and set them up in your DNS provider account. For example I have bought the Domain name from Godaddy, so I have configured these Nameservers in Godaddy.
+
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/8fbe6bee-d81e-4264-838b-758101ac08a8)
+3. In CloudFlare, under the DNS setting click on Add records to create  “CNAME” type Record. Provide your “DNS name” of the frontend load balancer at the respective  “frontend server Domain name”.
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/d2233ef7-e1ca-438a-b17c-23a3089d2310)
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/dace6344-2f0f-4cc2-8fe0-49315877e8e7)
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/09df7946-fc99-4182-baf8-0630cce5463a)
+## Run the Frontend & Backend Server & try to access the Node JS Application
+1.	Now Start both the Backend servers by going in the folder where your Nodejs Backend code is present.
+   ```
+"cd \backend"
+“sudo node index.js”
+
+```
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/821daf73-7691-4f4f-adfa-6b1b71d537aa)
+2.	Start the Frontend Server by going in the folder where your Nodejs Frontend code is present.
+```
+cd  “\Frontend”
+“sudo npm start”
+```
+3.	Now go to browser, type your domain name such as “Swapnashree.live”. Once the page is up click on “Add Experince” tab, fill all the fields & Submit.
+4.	Now connect to you Mongo Compass to check if the added data have been pushed to Mongo db or not
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/08f88e4a-f6d2-4098-8526-f0737d1093c6)
+
