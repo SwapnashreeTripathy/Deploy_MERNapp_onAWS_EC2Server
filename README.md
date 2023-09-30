@@ -145,35 +145,35 @@ For Frontend:
 For Backend:
 ![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/51cdda38-6ffd-4bf4-9da3-f4d7374e9fd2)
 
-![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/a2ba43bf-aa05-4788-8e1d-59d67aea4de2)
+
 ```
 “sudo apt update”
 “sudo apt install snapd”
 
 ```
-![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/04b5e197-5552-4e57-80f9-a0ee993b01cc)
+
 * To test your system, install the hello-world snap and make sure it runs correctly:
   ```
       "sudo snap install hello-world”
       “hello-world”
 
   ```
-![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/a5db6f2f-4c27-4945-9cab-9457fe87b3e5)
+
 * If you have any Certbot packages installed, then need to remove it by below command.
   ```
   “sudo apt-get remove certbot”
   ```
-![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/3fabb49f-16d0-41f9-a1d2-05d86eafcd92)
+
 ```
 “sudo snap install --classic certbot”
 ```
-![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/aa208dc8-d1ae-4111-82e8-68492394448e)
+
 ```
 “sudo ln -s /snap/bin/certbot /usr/bin/certbot”
 “sudo certbot --nginx” 
 ```
 * After running this command it will ask you to Choose number Number defined for the Domain name. As for our Domain name number is “1”. Give 1 .
-  ![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/8e0b135b-f69b-4942-af37-4a07aa076295)
+  
 
 * To verify if Certbot installed or not, you can go to “/etc/nginx/sites-available/default” file and you will find that certbot has been installed.<br>
 ## Configure Reverse Proxy in BackendServer
@@ -182,15 +182,13 @@ For Backend:
       ![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/bf0faf8d-60ee-4340-9100-2d5ca79afb73)
 ## Domain Name Configuration on Cloudflare 
 1. In CloudFlare first set up your Domain name, by searching your Domain name, to get NameServers from Cloud Falre.<br>
-   ![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/28a0624c-6cde-4040-a083-1c2392ffc9c5)
+   
 
 2. Copy the name servers and set them up in your DNS provider account. For example I have bought the Domain name from Godaddy, so I have configured these Nameservers in Godaddy.
 
-![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/8fbe6bee-d81e-4264-838b-758101ac08a8)
+
 3. In CloudFlare, under the DNS setting click on Add records to create  “CNAME” type Record. Provide your “DNS name” of the frontend load balancer at the respective  “frontend server Domain name”.
-![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/d2233ef7-e1ca-438a-b17c-23a3089d2310)
-![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/dace6344-2f0f-4cc2-8fe0-49315877e8e7)
-![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/09df7946-fc99-4182-baf8-0630cce5463a)
+
 ## Run the Frontend & Backend Server & try to access the Node JS Application
 1.	Now Start both the Backend servers by going in the folder where your Nodejs Backend code is present.
    ```
