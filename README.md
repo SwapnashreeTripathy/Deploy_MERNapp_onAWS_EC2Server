@@ -2,7 +2,7 @@
 # Project Objective
 
 This Application is built on the backend with Nodejs and frontend with React technology, capable of handling around 1000 users providing feedback on their Travel Experiences details. The data is saved into a MongoDB cloud cluster. Two different EC2 servers host both the Frontend and Backend separately. Here's the architecture and deployment guideline:
-
+Please refer to "https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/blob/main/Screenshots.md" for setp by setp Guide to follow this Deployment Project.
 ## Architecture of the Project
 
 1. Create 2 EC2 Instances where Frontend and Backend Codes run separately in each server.
