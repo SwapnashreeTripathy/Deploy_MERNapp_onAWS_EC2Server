@@ -21,8 +21,18 @@
 ![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/646a76f4-7936-4b84-a55c-b04338643554)
 ![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/86698493-52c1-42ec-be36-e0031a08da66)
 
+## Steps to Install SSL Certificate from Certbot
 
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/a2ba43bf-aa05-4788-8e1d-59d67aea4de2)
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/04b5e197-5552-4e57-80f9-a0ee993b01cc)
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/a5db6f2f-4c27-4945-9cab-9457fe87b3e5)
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/3fabb49f-16d0-41f9-a1d2-05d86eafcd92)
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/aa208dc8-d1ae-4111-82e8-68492394448e)
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/8e0b135b-f69b-4942-af37-4a07aa076295)
 
-
-
-
+## Domain Name Configuration on Cloudflare
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/28a0624c-6cde-4040-a083-1c2392ffc9c5)
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/8fbe6bee-d81e-4264-838b-758101ac08a8)
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/d2233ef7-e1ca-438a-b17c-23a3089d2310)
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/dace6344-2f0f-4cc2-8fe0-49315877e8e7)
+![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/09df7946-fc99-4182-baf8-0630cce5463a)
