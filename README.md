@@ -38,14 +38,6 @@ This Application is built on the backend with Nodejs and frontend with React tec
        Select “HTTP, HTTPS, SSH” type protocol so that users can connect to this application via these protocol.
 9. Now write a Size of how much Storage/EBS volume you want. I have given 20GB. Lastly Click on “Launch Instances”.<br>
           voilàààààààà!!!!!! You have successfully created your EC2 instances.<br>
-         ![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/2b4dd2f3-a6d2-464f-93a9-845fc96fb5ca)
-         ![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/24b04052-78b5-4991-932e-bf53f0f507c8)
-         ![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/330fd4dd-c65e-4ebb-be9c-06a950d5d311)
-         ![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/a5d1df7a-bffc-40e8-8d9d-1a3183f99807)
-         ![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/1bc208c2-377f-487a-8930-d4b6d30dd9e9)
-
-
-
 
 ### Configure Nodejs Application on EC2 Server
 
@@ -117,19 +109,6 @@ As we have created a Single Instance of the Frontend and backend Server, we need
 4. You will be back to the load balancer creation page & the target group we have created will be selected under “Listener & Routing”.
 
 5. Lastly click on “Create Load balancer”.
-
-## Steps for Creating an Image
-   ![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/f8fa6e6b-dd6b-41dc-ab70-cdbbbffce38d)
-## Steps for Creating  Load Balancer
-![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/df5d1ce0-c7f2-43b0-8686-62a3300d209e)
-![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/0271e4c3-e3e8-4d6b-a3f1-0b0ae29c7b89)
-![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/fd010c22-569e-471d-84dc-2a8239b79e41)
-
-## Create Target Group for this Load Balancer 
-![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/a4b47cca-befa-45de-8904-7bb3a7a65043)
-![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/5b6f3713-bbf2-4160-ae8b-0d77cbc07af2)
-![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/646a76f4-7936-4b84-a55c-b04338643554)
-![image](https://github.com/SwapnashreeTripathy/Deploy_MERNapp_onAWS_EC2Server/assets/139486876/86698493-52c1-42ec-be36-e0031a08da66)
 
 
 
