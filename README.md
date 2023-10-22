@@ -210,4 +210,4 @@ cd  “\Frontend”
 
 
 ## *Welcome to my DevOps deployment project on GitHub! Thank you for dropping by!*
-## *And Credit for the code development of this project goes to [Prashant Dey] (GitHub: @UnpredictablePrashant), who dedicated their expertise to its creation.*
+
