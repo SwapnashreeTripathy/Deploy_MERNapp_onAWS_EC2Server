@@ -1,4 +1,6 @@
 # Deploy_MERNAPP_OnAWS_EC2Server
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FSwapnashreeTripathy%2FDeploy_MERNapp_onAWS_EC2Server%2Fblob%2Fmain%2FREADME.md&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+
 # Project Objective
 
 This Application is built on the backend with Nodejs and frontend with React technology, capable of handling around 1000 users providing feedback on their Travel Experiences details. The data is saved into a MongoDB cloud cluster. Two different EC2 servers host both the Frontend and Backend separately. 
